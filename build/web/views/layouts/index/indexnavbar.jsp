@@ -6,12 +6,21 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
-    </head>
-    <body>
-        <h1>Hello World!</h1>
-    </body>
-</html>
+<header>
+    <nav>
+        <div class="centernav">
+            <div class="navhome">
+                <p>Home</p>
+                <hr id="hrhome">
+            </div>
+            <div class="navhome" id="aboutid" onclick="redirectAboutUs()">
+                <p>About Us</p>
+                <hr id="hrabout">
+            </div>
+            <div class="navhome" id="howtoid" onclick="redirectHowTo()">
+                <p>How-To</p>
+                <hr id="hrhow">
+            </div>
+        </div>
+    </nav>
+</header>
