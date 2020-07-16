@@ -52,7 +52,6 @@ public class IndexServlet extends HttpServlet {
             throws ServletException, IOException {
         RequestDispatcher rd = request.getRequestDispatcher("/views/index.jsp");
         rd.forward(request, response);
-        processRequest(request, response);
     }
 
     /**

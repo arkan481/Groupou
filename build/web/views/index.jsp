@@ -11,28 +11,11 @@
         <jsp:include page="/views/layouts/index/indexhead.jsp"></jsp:include>
     </head>
     <body>
-    <jsp:include page="/views/layouts/index/indexnavbar.jsp"></jsp:include>
+    <%@include file="/views/layouts/index/indexnavbar.jsp"%>
+    <%--<jsp:include page="/views/layouts/index/indexnavbar.jsp"></jsp:include>--%>
     
     <div class="popcontainer">
         <div class="maincontainer">
-            <header>
-                <nav>
-                    <div class="centernav">
-                        <div class="navhome">
-                            <p>Home</p>
-                            <hr id="hrhome">
-                        </div>
-                        <div class="navhome" id="aboutid" onclick="redirectAboutUs()">
-                            <p>About Us</p>
-                            <hr id="hrabout">
-                        </div>
-                        <div class="navhome" id="howtoid" onclick="redirectHowTo()">
-                            <p>How-To</p>
-                            <hr id="hrhow">
-                        </div>
-                    </div>
-                </nav>
-            </header>
             <div class="centercontainer">
                 <div class="textleft">
                     <p class="pchetto">Chetto Project</p>
@@ -43,7 +26,7 @@
                     </div>
                 </div>
                 <div class="imageright">
-                    <img src="./images/robotimg.png" alt="robotimg" class="imgrobot">
+                    <img src="./public/assets/img/robotimg.png" alt="robotimg" class="imgrobot">
                 </div>
             </div>
         </div>

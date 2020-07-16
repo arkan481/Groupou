@@ -3,13 +3,10 @@
     Created on : Jul 16, 2020, 12:26:10 PM
     Author     : Fino Basri
 --%>
-
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
 <header>
     <nav>
         <div class="centernav">
-            <div class="navhome">
+            <div class="navhome" onclick="redirectIndex()">
                 <p>Home</p>
                 <hr id="hrhome">
             </div>

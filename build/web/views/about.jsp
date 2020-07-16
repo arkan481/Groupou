@@ -37,7 +37,7 @@
                             </div>
                         </div>
                         <div class="imageright">
-                            <img src="./images/robotimg.png" alt="robotimg" class="imgrobot">
+                            <img src="./public/assets/img/robotimg.png" alt="robotimg" class="imgrobot">
                         </div>
                     </div>
                 </div>

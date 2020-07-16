@@ -11,7 +11,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <jsp:include page="/views/layouts/index/indexhead.jsp"></jsp:include>
         </head>
-        <body>
+        <body onload="showDivs(1)">
         <jsp:include page="/views/layouts/index/indexnavbar.jsp"></jsp:include>
             <div class="popcontainer">
                 <div class="maincontainer">
@@ -45,7 +45,7 @@
                             </div>
                         </div>
                         <div class="imageright">
-                            <img src="./images/robotimg.png" alt="robotimg" class="imgrobot">
+                            <img src="./public/assets/img/robotimg.png" alt="robotimg" class="imgrobot">
                         </div>
                     </div>
                 </div>
