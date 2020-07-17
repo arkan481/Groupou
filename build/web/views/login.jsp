@@ -84,7 +84,6 @@
             }
             
             if(getParameterByName("status") == "notok") {
-                // TODO : ADD WRONG USERNAME PROMPT
                 alert("WTFF");
             }else {
                 

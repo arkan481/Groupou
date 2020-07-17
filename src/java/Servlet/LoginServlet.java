@@ -86,6 +86,7 @@ public class LoginServlet extends HttpServlet {
         UserController uc = new UserController();
 
         try {
+            // TODO : ADD WRONG USERNAME PROMPT
             UserModel verifiedUser = uc.login(user);
             if (verifiedUser != null) {
                 request.setAttribute("loginstatus", "valid");
