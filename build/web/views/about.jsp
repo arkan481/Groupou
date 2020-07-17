@@ -9,10 +9,11 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <jsp:include page="/views/layouts/index/indexhead.jsp"></jsp:include>
+        <jsp:include page="/views/layouts/index/indexhead.jsp">
+            <jsp:param name="title" value="About Us"></jsp:param>
+        </jsp:include>
         </head>
-
-        <body>
+        <body onload="showHr(2)">
         <jsp:include page="/views/layouts/index/indexnavbar.jsp"></jsp:include>
             <div class="popcontainer">
                 <div class="maincontainer">

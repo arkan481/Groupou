@@ -12,6 +12,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -50,8 +51,12 @@ public class LoginServlet extends HttpServlet {
         
         // dispatching login.jsp file
         RequestDispatcher rd = request.getRequestDispatcher("/views/login.jsp");
-        rd.forward(request, response);
+
         
+        HttpSession session = request.getSession();
+        session.setAttribute("user", "BOOOO");
+        
+        rd.forward(request, response);
     }
 
     /**

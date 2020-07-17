@@ -9,7 +9,9 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <jsp:include page="/views/layouts/index/indexhead.jsp"></jsp:include>
+        <jsp:include page="/views/layouts/index/indexhead.jsp">
+            <jsp:param name="title" value="How-To"></jsp:param>
+        </jsp:include>
         </head>
         <body onload="showDivs(1)">
         <jsp:include page="/views/layouts/index/indexnavbar.jsp"></jsp:include>
@@ -18,7 +20,7 @@
                     <div class="centercontainer">
                         <div class="textleft">
                             <div class="howbox">
-                                <img src="https://www.iconsdb.com/icons/preview/white/arrow-93-xxl.png" alt="" class="arrow" onclick="changeSlide(-1)">
+                                <img src="https://image.flaticon.com/icons/svg/130/130882.svg" alt="" class="arrow" onclick="changeSlide(-1)">
                                 <div class="tutorwrap">
                                     <div class="tutorbox">
                                         <img src="https://developer.spotify.com/assets/FBImage.png" alt="" class="imgtutor">
@@ -41,7 +43,7 @@
                                         <p class="howp">Store your personal note to mibot privately by typing --savenote.note1,note2 with each note seperated by comma, and to see your stored note just type --seenote in mibot chatbox!</p>
                                     </div>
                                 </div>
-                                <img src="https://www.iconsdb.com/icons/preview/white/arrow-25-xxl.png" alt="" class="arrow" onclick="changeSlide(1)">
+                                <img src="https://image.flaticon.com/icons/svg/32/32213.svg" alt="" class="arrow" onclick="changeSlide(1)">
                             </div>
                         </div>
                         <div class="imageright">
