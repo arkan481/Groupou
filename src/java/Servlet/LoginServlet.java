@@ -5,8 +5,13 @@
  */
 package Servlet;
 
+import Controller.UserController;
+import Model.UserModel;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -48,14 +53,13 @@ public class LoginServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+
         // dispatching login.jsp file
         RequestDispatcher rd = request.getRequestDispatcher("/views/login.jsp");
 
-        
         HttpSession session = request.getSession();
         session.setAttribute("user", "BOOOO");
-        
+
         rd.forward(request, response);
     }
 
@@ -70,7 +74,32 @@ public class LoginServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+
+        // LOGIN
+        String username = (String) request.getParameter("username");
+        String password = (String) request.getParameter("pass");
+
+        UserModel user = new UserModel();
+        user.setUserName(username);
+        user.setPassword(password);
+
+        UserController uc = new UserController();
+
+        try {
+            UserModel verifiedUser = uc.login(user);
+            if (verifiedUser != null) {
+                request.setAttribute("loginstatus", "valid");
+                System.out.println("valid");
+            } else {
+                request.setAttribute("login", "invalid");
+                response.setStatus(500);
+                response.sendRedirect("./login?status=notok");
+                System.out.println("invalid");
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(LoginServlet.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
     }
 
     /**
