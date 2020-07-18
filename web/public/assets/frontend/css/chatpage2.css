@@ -1,0 +1,265 @@
+body {
+    margin: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: white !important;
+    background-image: none;
+}
+
+@font-face {
+    font-family: 'productsans';
+    src: url('../fonts/ProductSans.ttf');
+}
+
+.maincontainer {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.containerkiri{
+    height: 100vh;
+    width: 380px;
+    background-color:#F5F8FA;
+    display: flex;
+    flex-direction: column;
+}
+
+.containerkanan{
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.boxprofile {
+    margin-top: 20px;
+    width: 100%;
+    height: 77px;
+    margin-left: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 50px;
+}
+
+.logoutwrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.logoutbox {
+    width: 220px;
+    height: 52px;
+    background-color: #FF5F5F;
+    border-radius: 10px;
+    box-shadow: darkgray 3px 3px 3px 3px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.logoutbox:hover {
+    box-shadow: #774343 5px 5px 5px 5px;
+}
+
+
+.gifimg {
+    height: auto;
+    width: 100%;
+}
+
+.boxkiri{
+    width: 100%;
+    height: 77px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+#inboxid {
+    background-color: white;
+}
+
+.bluediv {
+    width: 6px;
+    height: 51px;
+    background-color: #1FB5EB;
+    margin-right: 20px;
+    opacity: 0;
+}
+
+.boxkiri:hover {
+    background-color: white;
+}
+
+#blueinbox {
+    opacity: 100% !important;
+}
+
+.profilimage{
+    width: 50px;
+    height: 50px;
+}
+
+.username{
+    text-align: left;
+    font: Bold 20px/24px productsans;
+    letter-spacing: 0px;
+    opacity: 1;  
+    margin-left: 18px;   
+}
+
+.logo{
+    width: 25px;
+    height: auto
+}
+
+.textlogo{
+    text-align: left;
+    font: Bold 24px/29px;
+    font-family: ProductSans;
+    letter-spacing: 0px;
+    opacity: 1;
+    margin-left: 28px;
+}
+
+.chatbox{
+    padding-top: 20px;
+    width: 100%;
+    flex-grow: 1;
+    background-color: white;
+    overflow: scroll;
+}
+
+.wrapperinbox {
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.inboxsend{
+    border: #33333333 solid 1px;
+    width: 80%;
+    height: 58px;
+    background-color: white;
+    margin-left: 30px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 20px;
+    box-shadow: darkgray 3px 3px 3px 3px;
+}
+
+input{
+    height: 90%;
+    width: 90%;
+    border: none;
+    margin-left: 20px;
+}
+
+.logp {
+    color: white;
+    font-family: productsans;
+    margin-left: 5px;
+}
+
+.outercont {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.blackbox {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: black;
+    opacity: 90%;
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+.logoutfloatbox {
+    width: 30%;
+    height: 30%;
+    display: flex;
+    background-color: white;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.btnwrap {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.btnbox {
+    width: 40%;
+    height: 50px;
+    border-radius: 8px;
+    color: white;
+    font-family: productsans;
+    font-size: 1.2em;
+    border: none;
+}
+
+#yesbtn {
+    background-color: teal;
+}
+
+#nobtn {
+    margin-left: 10px;
+    background-color: tomato;
+}
+
+a{
+    text-decoration: none;
+    color: unset;
+}
+
+.plogoutbox {
+    text-align: center;
+    font-family: productsans;
+}
+
+/* .test {
+    border-radius: 10px;
+    box-shadow: darkgray 3px 3px 3px 3px;
+} */
+
+@media(max-width: 860px) {
+    .containerkiri {
+        display: none;
+    }
+
+    .containerkanan {
+        width: 100%;
+    }
+
+    .inboxsend {
+        margin-left: 10px;
+        margin-right: 10px;
+        width: 100%;
+        padding-right: 10px;
+    }
+
+}

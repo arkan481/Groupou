@@ -1,4 +1,4 @@
-# Portal-Media-Training
+# Groupou
 ## Overview
 This project was created to fulfill a given 4th project task during my 2nd semester study at CEP CCIT FTUI
 
@@ -13,7 +13,7 @@ This project was created to fulfill a given 4th project task during my 2nd semes
 - [ ] Add Sign Up Page
 - [ ] Add Login Session
 - [ ] Add User Profile Icon at the Bottom Left Corner of Index Page
-- [ ] Add Chat Page
+- [X] Add Chat Page
 - [ ] Add 'Add Friend Functionality'
 - [ ] Generate Random Link To Join a Group
-- [ ] Deploy
+- [ ] Deploy 
