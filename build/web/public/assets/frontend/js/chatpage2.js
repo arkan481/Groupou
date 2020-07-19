@@ -218,9 +218,8 @@ function hidePopUp() {
 }
 
 function redirectToIndex() {
-    // TODO : ADD SESSION CLEAR HERE :)
-    window.location = "./";
-    sessionStorage.clear();
+    // TODO : ADD SESSION CLEAR HERE
+    window.location = "./logout";
 }
 
 function getName() {

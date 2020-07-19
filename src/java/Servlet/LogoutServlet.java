@@ -7,7 +7,6 @@ package Servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -18,7 +17,7 @@ import javax.servlet.http.HttpSession;
  *
  * @author arkan481
  */
-public class ChatServlet extends HttpServlet {
+public class LogoutServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -49,15 +48,10 @@ public class ChatServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
+        
         HttpSession session = request.getSession();
-        System.out.println("session: "+session.getAttribute("user"));
-        if (session.getAttribute("user") == null) {
-            response.sendRedirect("./login");
-        } else {
-            RequestDispatcher rd = request.getRequestDispatcher("/views/chatpage.jsp");
-            rd.forward(request, response);
-        }
+        session.invalidate();
+        response.sendRedirect("./");
     }
 
     /**
@@ -71,7 +65,7 @@ public class ChatServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
+        processRequest(request, response);
     }
 
     /**

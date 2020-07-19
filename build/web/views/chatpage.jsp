@@ -22,7 +22,7 @@
                     <div class="logoutfloatbox">
                         <p class="plogoutbox">Are you sure want to logout?</p>
                         <div class="btnwrap">
-                            <button class="btnbox" id="yesbtn" onclick="redirectToIndex()">Yes <c:remove var="user" scope="session"/></button>
+                            <button class="btnbox" id="yesbtn" onclick="redirectToIndex()">Yes</button>
                             <button class="btnbox" id="nobtn" onclick="hidePopUp()">No</button>
                         </div>
                     </div>
@@ -30,9 +30,11 @@
                 <div class="maincontainer">
                     <div class="containerkiri">
                         <div class="boxprofile">
-                            <img class="profilimage"
+                            <a href="./">
+                                <img class="profilimage"
                                  src="https://img.icons8.com/plasticine/2x/bot.png"
                                  alt="">
+                            </a>
                             <p class="username" id="unp">Username</p>
                         </div>
                         <div class="boxkiri" id="inboxid">
