@@ -26,6 +26,10 @@ body, html {
 	font-family: OpenSans-Regular, sans-serif;
 }
 
+.wrong {
+    color: red !important;
+}
+
 /*---------------------------------------------*/
 a {
 	font-family: OpenSans-Regular;

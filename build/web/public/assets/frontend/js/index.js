@@ -16,7 +16,8 @@ function showPopUp() {
 }
 
 function redirectLogin(session) {
-    console.log(session);
+    // TODO : ADD SESSION CHECK HERE
+    window.location = "./login";
 }
 
 function hidePopUp() {

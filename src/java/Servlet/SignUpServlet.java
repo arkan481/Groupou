@@ -9,21 +9,17 @@ import Controller.UserController;
 import Model.UserModel;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 /**
  *
  * @author arkan481
  */
-public class LoginServlet extends HttpServlet {
+public class SignUpServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -38,6 +34,7 @@ public class LoginServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
+            /* TODO output your page here. You may use following sample code. */
         }
     }
 
@@ -54,13 +51,9 @@ public class LoginServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        // dispatching login.jsp file
-        RequestDispatcher rd = request.getRequestDispatcher("/views/login.jsp");
-
-        HttpSession session = request.getSession();
-        session.setAttribute("user", "BOOOO");
-
+        RequestDispatcher rd = request.getRequestDispatcher("/views/signup.jsp");
         rd.forward(request, response);
+
     }
 
     /**
@@ -75,28 +68,30 @@ public class LoginServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        // LOGIN
-        String username = (String) request.getParameter("username");
-        String password = (String) request.getParameter("pass");
+        String username = request.getParameter("username");
+        String password = request.getParameter("pass");
+        String confPass = request.getParameter("confpass");
 
-        UserModel user = new UserModel();
-        user.setUserName(username);
-        user.setPassword(password);
-
-        UserController uc = new UserController();
-
-        try {
-            UserModel verifiedUser = uc.login(user);
-            if (verifiedUser != null) {
-                // TODO : ADD SESSION HERE
-                response.sendRedirect("./chat");
-            } else {
-                response.sendRedirect("./login?status=notok");
+        if (!password.equals(confPass)) {
+            response.sendRedirect("./signup?status=passerr");
+        } else if (username.length() <8) {
+            response.sendRedirect("./signup?status=unerr");
+        } else {
+            
+            UserModel user = new UserModel();
+            user.setUserName(username);
+            user.setPassword(password);
+            
+            UserController uc = new UserController();
+            boolean success = uc.create(user);
+            
+            if (success) {
+                response.sendRedirect("./login");
+            }else {
+                PrintWriter out = response.getWriter();
+                out.print("error creating your user");
             }
-        } catch (SQLException ex) {
-            Logger.getLogger(LoginServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
-
     }
 
     /**

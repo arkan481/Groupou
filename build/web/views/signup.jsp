@@ -1,7 +1,7 @@
 <%-- 
-    Document   : login
-    Created on : Jul 16, 2020, 11:00:03 AM
-    Author     : arkan481
+    Document   : logout
+    Created on : Jul 17, 2020, 9:44:16 PM
+    Author     : Fino Basri
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -12,7 +12,7 @@
 
         <!--Including loginhead.jsp-->
         <jsp:include page="/views/layouts/login/loginhead.jsp">
-            <jsp:param name="title" value="Login"></jsp:param>
+            <jsp:param name="title" value="Sign Up"></jsp:param>
         </jsp:include>
 
     </head>
@@ -21,9 +21,9 @@
         <div class="limiter">
             <div class="container-login100">
                 <div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-50">
-                    <form class="login100-form validate-form" action="./login" method="POST">
+                    <form class="login100-form validate-form" action="./signup" method="POST">
                         <span class="login100-form-title p-b-33">
-                            Account Login
+                            Account Sign Up
                         </span>
 
                         <div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
@@ -38,25 +38,30 @@
                             <span class="focus-input100-2"></span>
                         </div>
 
+                        <div class="wrap-input100 rs1 validate-input" data-validate="Password is required">
+                            <input class="input100" type="password" name="confpass" placeholder="Confirm Password">
+                            <span class="focus-input100-1"></span>
+                            <span class="focus-input100-2"></span>
+                        </div>
+
                         <div class="container-login100-form-btn m-t-20">
                             <button class="login100-form-btn" type="submit">
-                                Sign in
+                                Sign Up
                             </button>
                         </div>
 
                         <div class="text-center p-t-45 p-b-4">
                             <span class="txt1 wrong" id="wrongSpan">
-                                Wrong username or password!
                             </span>
                         </div>
 
-                        <div class="text-center p-t-25">
+                        <div class="text-center p-t-45">
                             <span class="txt1">
-                                Create an account?
+                                Already have an account?
                             </span>
 
-                            <a href="./signup" class="txt2 hov1">
-                                Sign up
+                            <a href="./login" class="txt2 hov1">
+                                Sign In
                             </a>
                         </div>
                     </form>
@@ -81,8 +86,12 @@
                 return decodeURIComponent(results[2].replace(/\+/g, ' '));
             }
 
-            if (getParameterByName("status") == "notok") {
+            if (getParameterByName("status") == "passerr") {
                 wrongSpan.style.display = "block";
+                wrongSpan.textContent = "Password doesn't match!";
+            } else if (getParameterByName("status") == "unerr") {
+                wrongSpan.style.display = "block";
+                wrongSpan.textContent = "Username must be 8 characters long!";
             } else {
                 wrongSpan.style.display = "none";
             }

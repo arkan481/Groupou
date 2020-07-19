@@ -45,21 +45,17 @@
                         </div>
 
                         <div class="text-center p-t-45 p-b-4">
-                            <span class="txt1">
-                                Forgot
+                            <span class="txt1 wrong" id="wrongSpan">
+                                Wrong username or password!
                             </span>
-
-                            <a href="#" class="txt2 hov1">
-                                Username / Password?
-                            </a>
                         </div>
 
-                        <div class="text-center">
+                        <div class="text-center p-t-25">
                             <span class="txt1">
                                 Create an account?
                             </span>
 
-                            <a href="#" class="txt2 hov1">
+                            <a href="./signup" class="txt2 hov1">
                                 Sign up
                             </a>
                         </div>
@@ -70,6 +66,8 @@
         <!--Including the login script-->
         <jsp:include page="/views/layouts/login/loginscript.jsp"></jsp:include>
         <script>
+            var wrongSpan = document.getElementById("wrongSpan");
+
             function getParameterByName(name, url) {
                 if (!url)
                     url = window.location.href;
@@ -82,11 +80,11 @@
                     return '';
                 return decodeURIComponent(results[2].replace(/\+/g, ' '));
             }
-            
-            if(getParameterByName("status") == "notok") {
-                alert("WTFF");
-            }else {
-                
+
+            if (getParameterByName("status") == "notok") {
+                wrongSpan.style.display = "block";
+            } else {
+                wrongSpan.style.display = "none";
             }
         </script>
     </body>

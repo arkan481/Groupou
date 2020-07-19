@@ -20,8 +20,6 @@ function append(){
         chatBox.appendChild(saveNote(notes));
     }else if(command[0]=="--seenote") {
         chatBox.appendChild(seeNote());
-    }else {
-        chatBox.appendChild(replyUnknown());
     }
     updateState();
 }
@@ -100,30 +98,6 @@ function seeNote() {
     div.style.marginBottom = "40px";
     div.appendChild(span);
     return div;
-}
-
-function replyUnknown() {
-    var div = document.createElement("div");
-    var img = document.createElement("img");
-    img.src = "https://thumbs.gfycat.com/AcademicSomberAfricancivet-size_restricted.gif";
-    img.width = "150";
-    img.height = "150";
-
-    img.style.marginLeft = "10px";
-    div.style.boxShadow="darkgrey 5px 5px 5px 5px";
-    div.style.marginTop = "20px";
-    div.style.display = "flex";
-    div.style.alignItems = "center";
-    div.style.justifyContent = "center";
-    div.style.width = "150px";
-    div.style.height = "150px";
-    div.style.borderRadius = "10px";
-    div.style.marginLeft="20px";
-    div.style.padding = "10px";
-    div.appendChild(img);
-    div.style.marginBottom = "40px";
-
-    chatBox.appendChild(div);
 }
 
 function createuserchat(){
@@ -244,10 +218,12 @@ function hidePopUp() {
 }
 
 function redirectToIndex() {
+    // TODO : ADD SESSION CLEAR HERE :)
     window.location = "./";
 }
 
 function getName() {
+    // TODO : PUT SESSION USERNAME HERE
     var usernameP = document.getElementById("unp");
     usernameP.textContent = localStorage["name"];
 }

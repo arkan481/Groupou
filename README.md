@@ -1,6 +1,6 @@
 # Groupou
 ## Overview
-This project was created to fulfill a given 4th project task during my 2nd semester study at CEP CCIT FTUI
+This project was created to fulfill a given 4th project task during my 2nd semester study in CEP CCIT FTUI
 
 ## Requirements
 1. JAVA : JDK 8
@@ -9,11 +9,11 @@ This project was created to fulfill a given 4th project task during my 2nd semes
 4. MySQL : Version 8.0
 
 ## To-Do
-- [ ] Add Login Page
-- [ ] Add Sign Up Page
+- [x] Add Login Page
+- [x] Add Sign Up Page
 - [ ] Add Login Session
-- [ ] Add User Profile Icon at the Bottom Left Corner of Index Page
-- [X] Add Chat Page
+- [ ] Add User Profile Icon at the Bottom Left Corner of the Index Page
+- [x] Add Chat Page
 - [ ] Add 'Add Friend Functionality'
 - [ ] Generate Random Link To Join a Group
-- [ ] Deploy 
+- [ ] Deploy
