@@ -57,9 +57,6 @@ public class LoginServlet extends HttpServlet {
         // dispatching login.jsp file
         RequestDispatcher rd = request.getRequestDispatcher("/views/login.jsp");
 
-        HttpSession session = request.getSession();
-        session.setAttribute("user", "BOOOO");
-
         rd.forward(request, response);
     }
 
@@ -89,6 +86,8 @@ public class LoginServlet extends HttpServlet {
             UserModel verifiedUser = uc.login(user);
             if (verifiedUser != null) {
                 // TODO : ADD SESSION HERE
+                HttpSession session = request.getSession();
+                session.setAttribute("user", verifiedUser.getId());
                 response.sendRedirect("./chat");
             } else {
                 response.sendRedirect("./login?status=notok");

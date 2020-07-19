@@ -17,7 +17,14 @@ function showPopUp() {
 
 function redirectLogin(session) {
     // TODO : ADD SESSION CHECK HERE
-    window.location = "./login";
+
+    if (!session) {
+        window.location = "./login";
+    }else {
+        window.location = "./chat";
+    }
+
+    console.log(session);
 }
 
 function hidePopUp() {
@@ -28,7 +35,7 @@ function redirectToChat() {
     var name = nameInput.value
     if (name.length == 0) {
         alert("Please Input Your Name");
-    }else {
+    } else {
         localStorage["name"] = name;
         window.location = "../chatpage2.html";
     }
@@ -86,13 +93,18 @@ function changeSlide(option) {
 
 function showDivs(index) {
     var i;
-    if (index > tutorBox.length) {slideIndex = 1}
-    if (index < 1) {slideIndex = tutorBox.length} ;
-    for (i = 0; i < tutorBox.length; i++) {
-      tutorBox[i].style.display = "none";
+    if (index > tutorBox.length) {
+        slideIndex = 1
     }
-    tutorBox[slideIndex-1].style.display = "block";
+    if (index < 1) {
+        slideIndex = tutorBox.length
+    }
+    ;
+    for (i = 0; i < tutorBox.length; i++) {
+        tutorBox[i].style.display = "none";
+    }
+    tutorBox[slideIndex - 1].style.display = "block";
     showHr(3);
-  }
+}
 
 

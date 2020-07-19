@@ -11,9 +11,11 @@ This project was created to fulfill a given 4th project task during my 2nd semes
 ## To-Do
 - [x] Add Login Page
 - [x] Add Sign Up Page
-- [ ] Add Login Session
+- [x] Add Login Session
 - [ ] Add User Profile Icon at the Bottom Left Corner of the Index Page
 - [x] Add Chat Page
 - [ ] Add 'Add Friend Functionality'
-- [ ] Generate Random Link To Join a Group
+- [ ] Modify chat page to have user's group list
+- [ ] Add chat API route
+- [ ] Generate Random Link to Join a Group
 - [ ] Deploy

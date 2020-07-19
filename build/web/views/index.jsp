@@ -4,6 +4,7 @@
     Author     : Fino Basri
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -22,10 +23,9 @@
                 <div class="textleft">
                     <p class="pchetto">Groupou Project</p>
                     <p class="pweb">Web Application</p>
-                    <p class="pdesc">Chat with your friends, family, or colleagues with interactive bot <br> that features Spotify's Song, Wikipedia information and <br> notes storer!</p>
+                    <p class="pdesc">Chat with your friends, family, or colleagues along with interactive bot <br> that features Spotify's Song, Wikipedia information and <br> notes storer!</p>
                     <div class="btnwrapper">
-                    <%--<%=session.getAttribute("user")%>--%>
-                        <button id="btnStart"onclick="redirectLogin('Baa')">Chat Now</button>
+                        <button id="btnStart"onclick="redirectLogin(<%=session.getAttribute("user")%>)">Chat Now</button>
                     </div>
                 </div>
                 <div class="imageright">

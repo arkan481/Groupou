@@ -4,6 +4,7 @@
     Author     : arkan481
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -21,7 +22,7 @@
                     <div class="logoutfloatbox">
                         <p class="plogoutbox">Are you sure want to logout?</p>
                         <div class="btnwrap">
-                            <button class="btnbox" id="yesbtn" onclick="redirectToIndex()">Yes</button>
+                            <button class="btnbox" id="yesbtn" onclick="redirectToIndex()">Yes <c:remove var="user" scope="session"/></button>
                             <button class="btnbox" id="nobtn" onclick="hidePopUp()">No</button>
                         </div>
                     </div>

@@ -220,6 +220,7 @@ function hidePopUp() {
 function redirectToIndex() {
     // TODO : ADD SESSION CLEAR HERE :)
     window.location = "./";
+    sessionStorage.clear();
 }
 
 function getName() {

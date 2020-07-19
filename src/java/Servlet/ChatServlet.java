@@ -12,12 +12,13 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
  * @author arkan481
  */
-public class ChatPage extends HttpServlet {
+public class ChatServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -48,10 +49,14 @@ public class ChatPage extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
-        RequestDispatcher rd = request.getRequestDispatcher("/views/chatpage.jsp");
-        rd.forward(request, response);
-        
+
+        HttpSession session = request.getSession();
+        if (session.getAttribute("user") == null) {
+            response.sendRedirect("./login");
+        } else {
+            RequestDispatcher rd = request.getRequestDispatcher("/views/chatpage.jsp");
+            rd.forward(request, response);
+        }
     }
 
     /**
