@@ -54,4 +54,22 @@ public class UserController extends BaseController{
         }
     }
     
+    public UserModel show(String id) throws SQLException {
+        String sql = this.query.SHOW;
+        
+        Map<Integer,Object> map = new HashMap<>();
+        map.put(1, id);
+        
+        ResultSet rs = this.getWithParam(map, sql);
+        
+        if (rs.next()) {
+            UserModel userModel = new UserModel();
+            userModel.setId(Integer.parseInt(rs.getString("id")));
+            userModel.setUserName(rs.getString("username"));
+            return userModel;
+        }else {
+            return null;
+        }
+    }
+    
 }

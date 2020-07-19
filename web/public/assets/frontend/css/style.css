@@ -67,6 +67,20 @@ header {
     height: 50%;
 }
 
+.usernamediv {
+    color: white;
+    margin-left: 35px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.iconprofile {
+    width: 35px;
+    height: 35px;
+    margin-right: 10px;
+}
+
 .imgrobot {
     float: right;
     width: 70%;

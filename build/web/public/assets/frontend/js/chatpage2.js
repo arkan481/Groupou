@@ -225,5 +225,4 @@ function redirectToIndex() {
 function getName() {
     // TODO : PUT SESSION USERNAME HERE
     var usernameP = document.getElementById("unp");
-    usernameP.textContent = localStorage["name"];
 }

@@ -31,6 +31,15 @@ function hidePopUp() {
     popupBox.style.display = "none";
 }
 
+function checkSession(session) {
+    var userPP = document.getElementById("profid");
+    var userName = document.getElementById("unspan");
+    if(session) {
+        userPP.src = "https://img.icons8.com/plasticine/2x/bot.png";
+//        userName.textContent = "logged in";
+    }
+}
+
 function redirectToChat() {
     var name = nameInput.value
     if (name.length == 0) {

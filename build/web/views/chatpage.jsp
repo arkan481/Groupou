@@ -35,7 +35,7 @@
                                  src="https://img.icons8.com/plasticine/2x/bot.png"
                                  alt="">
                             </a>
-                            <p class="username" id="unp">Username</p>
+                            <p class="username" id="unp">${username}</p>
                         </div>
                         <div class="boxkiri" id="inboxid">
                             <div class="bluediv" id="blueinbox"></div>

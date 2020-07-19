@@ -5,8 +5,13 @@
  */
 package Servlet;
 
+import Controller.UserController;
+import Model.UserModel;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -50,13 +55,23 @@ public class ChatServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
+        RequestDispatcher rd = request.getRequestDispatcher("/views/chatpage.jsp");
         HttpSession session = request.getSession();
-        System.out.println("session: "+session.getAttribute("user"));
-        if (session.getAttribute("user") == null) {
+        String user = String.valueOf(session.getAttribute("user"));
+
+        if (user.equals("null")) {
             response.sendRedirect("./login");
         } else {
-            RequestDispatcher rd = request.getRequestDispatcher("/views/chatpage.jsp");
-            rd.forward(request, response);
+            UserController uc = new UserController();
+            try {
+                UserModel sessionedUser = uc.show(String.valueOf(user));
+                if (sessionedUser != null) {
+                    request.setAttribute("username", sessionedUser.getUserName());
+                    rd.forward(request, response);
+                }
+            } catch (SQLException ex) {
+                Logger.getLogger(IndexServlet.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
     }
 

@@ -12,11 +12,11 @@
         <jsp:include page="/views/layouts/index/indexhead.jsp">
             <jsp:param name="title" value="How-To"></jsp:param>
         </jsp:include>
-        </head>
-        <body onload="showDivs(1)">
-        <jsp:include page="/views/layouts/index/indexnavbar.jsp"></jsp:include>
-            <div class="popcontainer">
-                <div class="maincontainer">
+    </head>
+    <body onload="showDivs(1)">
+        <div class="popcontainer">
+            <div class="maincontainer">
+                <jsp:include page="/views/layouts/index/indexnavbar.jsp"></jsp:include>
                     <div class="centercontainer">
                         <div class="textleft">
                             <div class="howbox">
