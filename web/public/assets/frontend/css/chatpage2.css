@@ -4,6 +4,7 @@ body {
     height: 100vh;
     background-color: white !important;
     background-image: none;
+    position: relative;
 }
 
 @font-face {
@@ -25,6 +26,8 @@ body {
     display: flex;
     flex-direction: column;
     border-right: 5px solid #dde2eb;
+    border-top-right-radius: 12px;
+    border-bottom-right-radius: 12px;
 }
 
 .containerkiri1 {
@@ -121,6 +124,7 @@ body {
     display: flex;
     flex-direction: row;
     align-items: center;
+    cursor: pointer;
 }
 
 #inboxid {
@@ -231,7 +235,7 @@ input{
 .outercont {
     width: 100%;
     height: 100%;
-    position: relative;
+    position: absolute;
 }
 
 .blackbox {
@@ -293,6 +297,135 @@ a{
 .plogoutbox {
     text-align: center;
     font-family: productsans;
+}
+
+.popupGroup {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: black;
+    opacity: 80%;
+}
+
+.groupDivWhite {
+    width: 550px;
+    height: 400px;
+    background-color: white;
+    opacity: 100%;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    padding-top: 12px;
+}
+
+.toptext {
+    text-align: center;
+    color: #006dcc;
+    font-size: 1.1em;
+}
+
+.topdesctext {
+    margin-top: 5px;
+    text-align: center;
+    color: #757c82;
+    font-size: 1em;
+}
+
+.centerdiv {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 250px;
+    align-items: center;
+}
+
+.leftdiv {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding-left: 20px;
+    padding-right: 10px;
+    padding-top: 20px;
+}
+
+.leftdiv2 {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding-left: 20px;
+    padding-right: 10px;
+    padding-top: 20px;
+    justify-content: center;
+}
+
+.inputgroup {
+    width: 100%;
+    height: 50px;
+    padding: unset;
+    margin: unset;
+    border-bottom: 2px #a6a9ad solid;
+    margin-bottom: 15px;
+}
+
+.pgroupname {
+    font-size: 0.8em;
+}
+
+.spanguide {
+    font-size: 0.8em;
+    color: darkgray;
+    margin-top: 12px;
+}
+
+.rightdiv {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.comimg {
+    width: 250px;
+    height: 250px;
+}
+
+.joinbtn {
+    border: none;
+    border-radius: 5px;
+    margin-top: 12px;
+    background-color: #006dcc;
+    color: white;
+    width: 90px;
+    height: 30px;
+}
+
+.joinbtn2 {
+    border: none;
+    border-radius: 5px;
+    background-color: #8672fc;
+    color: white;
+    width: 90px;
+    height: 40px;
+    margin-right: 20px;
+}
+
+.wrappercreate {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    margin-right: 10px;
+    margin-left: 10px;
 }
 
 /* .test {

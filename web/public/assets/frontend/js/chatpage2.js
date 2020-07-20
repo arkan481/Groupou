@@ -226,3 +226,23 @@ function getName() {
     // TODO : PUT SESSION USERNAME HERE
     var usernameP = document.getElementById("unp");
 }
+
+function popUpGroup() {
+    var groupPopUp = document.getElementById("popupGroup");
+    groupPopUp.style.display = "flex";
+}
+
+function closeGroupPopup() {
+    var groupPopUp = document.getElementById("popupGroup");
+    groupPopUp.style.display = "none";
+}
+
+function popUpFriend() {
+    var groupPopUp = document.getElementById("popupFriend");
+    groupPopUp.style.display = "flex";
+}
+
+function closeFriendPopup() {
+    var groupPopUp = document.getElementById("popupFriend");
+    groupPopUp.style.display = "none";
+}
