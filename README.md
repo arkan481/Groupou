@@ -15,7 +15,7 @@ This project was created to fulfill a given 4th project task during my 2nd semes
 - [x] Add User Profile Icon at the Bottom Left Corner of the Index Page
 - [x] Add Chat Page
 - [ ] Add 'Add Friend Functionality'
-- [ ] Modify chat page to have user's group list
+- [x] Modify chat page to have user's group list
 - [ ] Add chat API route
 - [ ] Generate Random Link to Join a Group
 - [ ] Deploy

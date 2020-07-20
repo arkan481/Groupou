@@ -79,9 +79,24 @@
                     <div class="wrapper2">
                         <div class="groupwrapper">
                             <input type="text" class="searchgroup" placeholder="Search Group"/>
+                            <div class="divgroup">
+                                <c:forEach items="${usergroup}" var="group">
+                                    <div class="chatbubble">
+                                        <p>${group.groupName}</p>
+                                        <div class="msghor">
+                                            <p class="msgtxt">Some message...</p>
+                                            <div class="tooltip" onclick="copyFunction(${group.id})">
+                                                <img class="copyicon" src="https://cdn3.iconfinder.com/data/icons/basic-1-blue-series/64/a-06-512.png"/>
+                                                <span class="tooltiptext" id="tttext">ID: ${group.id}</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </c:forEach>
+                            </div>
                         </div>
                         <div class="friendwrapper">
                             <input type="text" class="searchgroup" placeholder="Search Friends"/>
+
                         </div>
                     </div>
 
@@ -108,12 +123,12 @@
 
                     <div class="centerdiv">
                         <div class="leftdiv">
-                            <p class="pgroupname">GROUP NAME</p>
+                            <p class="pgroupname">Create a Group</p>
                             <input name="groupName" class="inputgroup" placeholder="New Group Name"/>
                             <span class="pgroupname">OR</span>
                             <p class="pgroupname">Join a Group</p>
-                            <input name="groupname" class="inputgroup" placeholder="Group Name"/>
-                            <button class="joinbtn">JOIN</button>
+                            <input name="groupname" class="inputgroup" placeholder="Group ID"/>
+                            <button type="button" class="joinbtn">JOIN</button>
                         </div>
                         <div class="rightdiv">
                             <img class="comimg" src="https://cdn1.iconfinder.com/data/icons/network-and-comminications-flat-circle-shadow-vo-1/120/control__data__share__community__social__communication__connect-512.png"/>
@@ -146,6 +161,19 @@
             </div>
         </div>
         <jsp:include page="/views/layouts/chat/chatscript.jsp"></jsp:include>
+        <script>
+            function copyFunction(id) {
+                /* Copy the text inside the text field */
+                const el = document.createElement('textarea');
+                const toolTipText = document.getElementById("tttext");
+                el.value = id;
+                document.body.appendChild(el);
+                el.select();
+                document.execCommand("copy");
+                document.body.removeChild(el);
+                alert("Copied id: "+id);
+            }
+        </script>
     </body>
 </html>
 

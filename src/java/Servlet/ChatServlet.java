@@ -5,11 +5,14 @@
  */
 package Servlet;
 
+import Controller.GroupUserController;
 import Controller.UserController;
+import Model.GroupModel;
 import Model.UserModel;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
@@ -63,9 +66,12 @@ public class ChatServlet extends HttpServlet {
             response.sendRedirect("./login");
         } else {
             UserController uc = new UserController();
+            GroupUserController guc = new GroupUserController();
             try {
                 UserModel sessionedUser = uc.show(String.valueOf(user));
+                List<GroupModel> gms = guc.getUserGroup(user);
                 if (sessionedUser != null) {
+                    request.setAttribute("usergroup", gms);
                     request.setAttribute("username", sessionedUser.getUserName());
                     rd.forward(request, response);
                 }
