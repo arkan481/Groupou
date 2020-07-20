@@ -104,23 +104,26 @@
             <div class="groupDivWhite">
                 <span class="toptext">CREATE YOUR GROUP CHAT</span>
                 <span class="topdesctext">Make a place for you to hang out with your communities and friends.</span>
-                <div class="centerdiv">
-                    <div class="leftdiv">
-                        <p class="pgroupname">GROUP NAME</p>
-                        <input class="inputgroup" placeholder="Group Name"/>
-                        <span class="pgroupname">OR</span>
-                        <p class="pgroupname">Join a Group</p>
-                        <input class="inputgroup" placeholder="Group Name"/>
-                        <a href="#""><button class="joinbtn">JOIN</button></a>
+                <form action="group" method="POST">
+
+                    <div class="centerdiv">
+                        <div class="leftdiv">
+                            <p class="pgroupname">GROUP NAME</p>
+                            <input name="groupName" class="inputgroup" placeholder="New Group Name"/>
+                            <span class="pgroupname">OR</span>
+                            <p class="pgroupname">Join a Group</p>
+                            <input name="groupname" class="inputgroup" placeholder="Group Name"/>
+                            <button class="joinbtn">JOIN</button>
+                        </div>
+                        <div class="rightdiv">
+                            <img class="comimg" src="https://cdn1.iconfinder.com/data/icons/network-and-comminications-flat-circle-shadow-vo-1/120/control__data__share__community__social__communication__connect-512.png"/>
+                        </div>
                     </div>
-                    <div class="rightdiv">
-                        <img class="comimg" src="https://cdn1.iconfinder.com/data/icons/network-and-comminications-flat-circle-shadow-vo-1/120/control__data__share__community__social__communication__connect-512.png"/>
+                    <div class="wrappercreate">
+                        <a onclick="closeGroupPopup()" href="#" class="topdesctext">Back</a>
+                        <button type="submit" class="joinbtn2">CREATE</button>
                     </div>
-                </div>
-                <div class="wrappercreate">
-                    <a onclick="closeGroupPopup()" href="#" class="topdesctext">Back</a>
-                    <a href="#""><button class="joinbtn2">CREATE</button></a>
-                </div>
+                </form>
             </div>
         </div>
         <div class="popupGroup" id="popupFriend">
