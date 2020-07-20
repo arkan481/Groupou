@@ -5,6 +5,7 @@
  */
 package Servlet;
 
+import Controller.FriendController;
 import Controller.GroupUserController;
 import Controller.UserController;
 import Model.GroupModel;
@@ -67,10 +68,13 @@ public class ChatServlet extends HttpServlet {
         } else {
             UserController uc = new UserController();
             GroupUserController guc = new GroupUserController();
+            FriendController fc = new FriendController();
             try {
                 UserModel sessionedUser = uc.show(String.valueOf(user));
                 List<GroupModel> gms = guc.getUserGroup(user);
+                List<UserModel> userFriend = fc.getUserFriend(user);
                 if (sessionedUser != null) {
+                    request.setAttribute("userfriend", userFriend);
                     request.setAttribute("usergroup", gms);
                     request.setAttribute("username", sessionedUser.getUserName());
                     rd.forward(request, response);
@@ -103,6 +107,6 @@ public class ChatServlet extends HttpServlet {
     @Override
     public String getServletInfo() {
         return "Short description";
-    }// </editor-fold>
+    }
 
 }

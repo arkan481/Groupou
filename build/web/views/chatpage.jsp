@@ -96,7 +96,20 @@
                         </div>
                         <div class="friendwrapper">
                             <input type="text" class="searchgroup" placeholder="Search Friends"/>
-
+                            <div class="divgroup">
+                                <c:forEach items="${userfriend}" var="user">
+                                    <div class="chatbubble">
+                                        <p>${user.userName}</p>
+                                        <div class="msghor">
+                                            <p class="msgtxt">Some message...</p>
+                                            <div class="tooltip" onclick="copyFunction(${user.id})">
+                                                <img class="copyicon" src="https://cdn3.iconfinder.com/data/icons/basic-1-blue-series/64/a-06-512.png"/>
+                                                <span class="tooltiptext" id="tttext">ID: ${user.id}</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </c:forEach>
+                            </div>
                         </div>
                     </div>
 
@@ -148,7 +161,8 @@
                 <div class="centerdiv">
                     <div class="leftdiv2">
                         <p class="pgroupname">FIND YOUR FRIEND</p>
-                        <input class="inputgroup" placeholder="Friend Username"/>
+                        <form action="friend" method="POST" id="friendForm" form="friendForm"></form>
+                        <input class="inputgroup" placeholder="Friend Username" name="userfriend" form="friendForm"/>
                     </div>
                     <div class="rightdiv">
                         <img class="comimg" src="https://cdn1.iconfinder.com/data/icons/network-and-comminications-flat-circle-shadow-vo-1/120/control__data__share__community__social__communication__connect-512.png"/>
@@ -156,7 +170,7 @@
                 </div>
                 <div class="wrappercreate">
                     <a onclick="closeFriendPopup()" href="#" class="topdesctext">Back</a>
-                    <a href="#""><button class="joinbtn2">ADD</button></a>
+                    <button type="submit" class="joinbtn2" form="friendForm">ADD</button>
                 </div>
             </div>
         </div>
@@ -171,7 +185,7 @@
                 el.select();
                 document.execCommand("copy");
                 document.body.removeChild(el);
-                alert("Copied id: "+id);
+                alert("Copied id: " + id);
             }
         </script>
     </body>

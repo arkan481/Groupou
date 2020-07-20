@@ -11,5 +11,4 @@ package Query;
  */
 public class GroupQuery {
     public final String CREATE = "INSERT INTO group_tb (groupName,groupOwner) VALUES (?,?)";
-    
 }

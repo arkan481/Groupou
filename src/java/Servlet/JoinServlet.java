@@ -5,15 +5,10 @@
  */
 package Servlet;
 
-import Controller.FriendController;
-import Model.UserModel;
+import Controller.GroupUserController;
+import Model.GroupUserModel;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -21,9 +16,9 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author Fino Basri
+ * @author arkan481
  */
-public class FriendServlet extends HttpServlet {
+public class JoinServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -39,7 +34,6 @@ public class FriendServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-
         }
     }
 
@@ -55,8 +49,7 @@ public class FriendServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
-        
+        processRequest(request, response);
     }
 
     /**
@@ -71,14 +64,16 @@ public class FriendServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        String id = String.valueOf(request.getSession().getAttribute("user"));
-        String userName = request.getParameter("userfriend");
+        String userID = String.valueOf(request.getSession().getAttribute("user"));
+        String groupID = request.getParameter("groupID");
         
-        System.out.println("the username: "+userName);
-        System.out.println("the id: "+id);
+        GroupUserModel gum = new GroupUserModel();
+        gum.setUserID(userID);
+        gum.setGroupID(groupID);
         
-        FriendController fc = new FriendController();
-        boolean success = fc.insert(id, userName);
+        GroupUserController guc = new GroupUserController();
+        
+        boolean success = guc.create(gum);
         
         if (success) {
             response.sendRedirect("./chat");
@@ -86,6 +81,7 @@ public class FriendServlet extends HttpServlet {
             PrintWriter out = response.getWriter();
             out.print("error");
         }
+        
     }
 
     /**
@@ -96,6 +92,6 @@ public class FriendServlet extends HttpServlet {
     @Override
     public String getServletInfo() {
         return "Short description";
-    }
+    }// </editor-fold>
 
 }

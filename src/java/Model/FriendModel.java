@@ -10,32 +10,31 @@ package Model;
  * @author Fino Basri
  */
 public class FriendModel {
-    private int id;
-    private int adder;
-    private int addee;
+    private String id;
+    private String adder;
+    private String addee;
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
-    public int getAdder() {
+    public String getAdder() {
         return adder;
     }
 
-    public void setAdder(int adder) {
+    public void setAdder(String adder) {
         this.adder = adder;
     }
 
-    public int getAddee() {
+    public String getAddee() {
         return addee;
     }
 
-    public void setAddee(int addee) {
+    public void setAddee(String addee) {
         this.addee = addee;
     }
-    
 }

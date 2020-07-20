@@ -6,6 +6,7 @@
 package Controller;
 
 import Model.FriendModel;
+import Model.UserModel;
 import Query.FriendQuery;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -20,10 +21,10 @@ import java.util.Map;
  */
 public class FriendController extends BaseController {
     
-    private List<FriendModel> model = new ArrayList<>();
+    private List<UserModel> model = new ArrayList<>();
     private FriendQuery query = new FriendQuery();
     
-    public List<FriendModel> getUserFriend(String userID) throws SQLException {
+    public List<UserModel> getUserFriend(String userID) throws SQLException {
         String sql = this.query.GET;
 
         Map<Integer,Object> map = new HashMap<>();
@@ -32,14 +33,24 @@ public class FriendController extends BaseController {
         ResultSet rs = this.getWithParam(map, sql);
 
         while (rs.next()) {
-            FriendModel friendModel = new FriendModel();
-            friendModel.setAddee(rs.getString("addee"));
-            friendModel.setAdder(rs.getString("adder"));
+            UserModel userModel = new UserModel();
+            userModel.setUserName(rs.getString("username"));
+            userModel.setId(Integer.parseInt(rs.getString("id")));
 
-            model.add(friendModel);
+            model.add(userModel);
         }
-
         return model;
+    }
+    
+    public boolean insert(String id,String addedUsername) {
+        
+        String sql = this.query.INSERT;
+        
+        Map<Integer,Object> map = new HashMap<>();
+        map.put(1, id);
+        map.put(2, addedUsername);
+        
+        return this.preparedStatement(map, sql);
     }
     
     
