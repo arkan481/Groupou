@@ -14,9 +14,11 @@
         </jsp:include>
 
         <jsp:include page="/views/layouts/chat/chathead.jsp"></jsp:include>
+
         </head>
 
         <body onload="replyhi()">
+        <jsp:include page="/views/layouts/chat/chatscript.jsp"></jsp:include>
             <div class="outercont">
                 <div class="blackbox" id="blackboxid">
                     <div class="logoutfloatbox">
@@ -81,16 +83,18 @@
                             <input type="text" class="searchgroup" placeholder="Search Group"/>
                             <div class="divgroup">
                                 <c:forEach items="${usergroup}" var="group">
-                                    <div class="chatbubble">
-                                        <p>${group.groupName}</p>
-                                        <div class="msghor">
-                                            <p class="msgtxt">Some message...</p>
-                                            <div class="tooltip" onclick="copyFunction(${group.id})">
-                                                <img class="copyicon" src="https://cdn3.iconfinder.com/data/icons/basic-1-blue-series/64/a-06-512.png"/>
-                                                <span class="tooltiptext" id="tttext">ID: ${group.id}</span>
+                                    <a href="./chat?group=${group.id}" class="chatbubble">
+                                        <div clas="chatbubble">
+                                            <p>${group.groupName}</p>
+                                            <div class="msghor">
+                                                <p class="msgtxt">Some message...</p>
+                                                <div class="tooltip" onclick="copyFunction(${group.id})">
+                                                    <img class="copyicon" src="https://cdn3.iconfinder.com/data/icons/basic-1-blue-series/64/a-06-512.png"/>
+                                                    <span class="tooltiptext" id="tttext">ID: ${group.id}</span>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    </a>
                                 </c:forEach>
                             </div>
                         </div>
@@ -112,19 +116,54 @@
                             </div>
                         </div>
                     </div>
-
                 </div>
-                <div class="containerkanan">
-                    <div id="chatid" class="chatbox">
+                <div class="kananwrapper">
+                    <div class="containerkanan">
 
-                    </div>
-                    <div class="wrapperinbox">
-                        <div class="inboxsend">
-                            <input id="inputid" type="text" placeholder="Type Message…">
-                            <img class="logo" onclick="append()" src="./public/assets/img/send.png" alt="">
+                        <div id="chatid" class="chatbox">
+                            <c:forEach items="${groupchat}" var="chat">
+                                <script>
+                                    var senderID = "${chat.senderID}";
+                                    var userID = "<%= request.getSession().getAttribute("user")%>";
+                                    var chatBox = document.getElementById("chatid");
+                                    var div = document.createElement("div");
+                                    var span = document.createElement("span");
+                                    if (senderID === userID) {
+                                        div.style.textAlign = "right";
+                                    }
+                                    span.style.borderRadius = "15px";
+                                    span.style.marginLeft = "20px";
+                                    span.style.paddingTop = "12px";
+                                    span.style.paddingBottom = "12px";
+                                    span.style.paddingRight = "25px";
+                                    span.style.paddingLeft = "25px";
+                                    span.style.backgroundColor = "#4c89d4";
+                                    span.style.color = "white";
+                                    span.style.fontFamily = "productsans";
+                                    span.style.fontSize = "1em";
+                                    div.style.borderRadius = "15px";
+                                    div.style.marginTop = "35px";
+                                    span.textContent = "${chat.message}";
+                                    div.appendChild(span);
+
+                                    chatBox.appendChild(div);
+                                </script>
+
+                            </c:forEach>
+                        </div>
+                        <div class="wrapperinbox">
+                            <div class="inboxsend">
+                                <form action="groupchat" method="POST" id="sendForm"></form>
+                                <input id="inputid" type="text" placeholder="Type Message…" name="messageGroup" form="sendForm">
+                                <button type="submit" name="group" value="<%=request.getParameter("group")%>" name="group" form="sendForm" class="btnSend">
+                                    <img class="logo" onclick="append()" src="./public/assets/img/send.png" alt="">
+                                </button>
+                            </div>
                         </div>
                     </div>
-
+                    <div class="startchat">
+                        <img src="https://image.freepik.com/free-vector/online-communication-with-students-distance-learning_82574-6145.jpg"/>
+                    </div>
                 </div>
             </div>
         </div>
@@ -132,26 +171,25 @@
             <div class="groupDivWhite">
                 <span class="toptext">CREATE YOUR GROUP CHAT</span>
                 <span class="topdesctext">Make a place for you to hang out with your communities and friends.</span>
-                <form action="group" method="POST">
-
-                    <div class="centerdiv">
-                        <div class="leftdiv">
-                            <p class="pgroupname">Create a Group</p>
-                            <input name="groupName" class="inputgroup" placeholder="New Group Name"/>
-                            <span class="pgroupname">OR</span>
-                            <p class="pgroupname">Join a Group</p>
-                            <input name="groupname" class="inputgroup" placeholder="Group ID"/>
-                            <button type="button" class="joinbtn">JOIN</button>
-                        </div>
-                        <div class="rightdiv">
-                            <img class="comimg" src="https://cdn1.iconfinder.com/data/icons/network-and-comminications-flat-circle-shadow-vo-1/120/control__data__share__community__social__communication__connect-512.png"/>
-                        </div>
+                <form action="group" method="POST" id="createGroupForm"></form>
+                <form action="join" method="POST" id="joinGroupForm"></form>
+                <div class="centerdiv">
+                    <div class="leftdiv">
+                        <p class="pgroupname">Create a Group</p>
+                        <input name="groupName" class="inputgroup" placeholder="New Group Name" form="createGroupForm"/>
+                        <span class="pgroupname">OR</span>
+                        <p class="pgroupname">Join a Group</p>
+                        <input name="groupname" class="inputgroup" placeholder="Group ID" form="joinGroupForm"/>
+                        <button type="button" class="joinbtn" form="joinGroupForm">JOIN</button>
                     </div>
-                    <div class="wrappercreate">
-                        <a onclick="closeGroupPopup()" href="#" class="topdesctext">Back</a>
-                        <button type="submit" class="joinbtn2">CREATE</button>
+                    <div class="rightdiv">
+                        <img class="comimg" src="https://cdn1.iconfinder.com/data/icons/network-and-comminications-flat-circle-shadow-vo-1/120/control__data__share__community__social__communication__connect-512.png"/>
                     </div>
-                </form>
+                </div>
+                <div class="wrappercreate">
+                    <a onclick="closeGroupPopup()" href="#" class="topdesctext">Back</a>
+                    <button type="submit" class="joinbtn2" form="createGroupForm">CREATE</button>
+                </div>
             </div>
         </div>
         <div class="popupGroup" id="popupFriend">

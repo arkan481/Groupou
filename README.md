@@ -17,5 +17,12 @@ This project was created to fulfill a given 4th project task during my 2nd semes
 - [x] Add 'Add Friend Functionality'
 - [x] Modify chat page to have user's group list
 - [ ] Add chat API route
-- [ ] Generate Random Link to Join a Group
+- [ ] Make chat box dynamic according to user's group selection
+- [ ] Get the last message to be shown in the group bubble
 - [ ] Deploy
+
+## Bug Fix
+- [ ] Fix ChatBox Child Element Ordering
+- [ ] Fix Bot Command Reply
+- [ ] Fix Between User Chat Child Element Order on Chatbox
+- [ ] Fix Group Div Height

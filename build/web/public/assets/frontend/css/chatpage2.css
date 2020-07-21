@@ -42,13 +42,6 @@ body {
     flex-direction: column;
 }
 
-.containerkanan{
-    height: 100vh;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-}
-
 .boxprofile {
     margin-top: 20px;
     width: 100%;
@@ -196,6 +189,7 @@ body {
     flex-grow: 1;
     background-color: white;
     overflow: scroll;
+
 }
 
 .wrapperinbox {
@@ -510,6 +504,39 @@ a{
 .tooltip:hover .tooltiptext {
   visibility: visible;
   opacity: 1;
+}
+
+.kananwrapper {
+    width: 100%;
+    height: 100vh;
+}
+
+.containerkanan{
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+button {
+    border: none;
+    background-color: transparent;
+}
+
+.btnSend:hover {
+    background-color: transparent !important;
+}
+
+.startchat {
+    height: 100%;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    display: none;
+}
+
+.startchat img {
+    margin: auto;
 }
 
 

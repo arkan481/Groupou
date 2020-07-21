@@ -26,7 +26,7 @@ function append(){
 
 function updateState() {
     chatBox.scrollTop = chatBox.scrollHeight;
-    input.value="";
+//    input.value="";
 }
 
 function saveNote(notes) {
@@ -141,6 +141,24 @@ function replyhi(){
     chatBox.appendChild(div);
 
     getName();
+}
+
+function replyFromUser(message){
+    var div = document.createElement("div");
+    var p = document.createElement("p");
+    p.value = message;
+
+    div.style.boxShadow="darkgrey 5px 5px 5px 5px";
+    div.style.marginTop = "20px";
+    div.style.width = "550px";
+    div.style.height = "300px";
+    div.style.borderRadius = "10px";
+    div.style.marginLeft="20px";
+    div.style.padding = "10px";
+    div.appendChild(p);
+    
+    
+    chatBox.appendChild(div);
 }
 
 function replyimage(gambar){

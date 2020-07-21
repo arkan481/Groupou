@@ -5,31 +5,20 @@
  */
 package Servlet;
 
-import Controller.FriendController;
 import Controller.GroupChatController;
-import Controller.GroupUserController;
-import Controller.UserController;
-import Model.GroupBubbleModel;
-import Model.GroupModel;
-import Model.UserModel;
+import Model.GroupChatModel;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.SQLException;
-import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 /**
  *
  * @author arkan481
  */
-public class ChatServlet extends HttpServlet {
+public class GroupChatServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -60,38 +49,9 @@ public class ChatServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
-        RequestDispatcher rd = request.getRequestDispatcher("/views/chatpage.jsp");
-        HttpSession session = request.getSession();
-        String user = String.valueOf(session.getAttribute("user"));
-        String requestedGroupID = String.valueOf(request.getParameter("group"));
         
-        if (user.equals("null")) {
-            response.sendRedirect("./login");
-        } else {
-            UserController uc = new UserController();
-            GroupUserController guc = new GroupUserController();
-            FriendController fc = new FriendController();
-            GroupChatController gcc = new GroupChatController();
-            try {
-                UserModel sessionedUser = uc.show(String.valueOf(user));
-                List<GroupModel> gms = guc.getUserGroup(user);
-                List<UserModel> userFriend = fc.getUserFriend(user);
-                if (sessionedUser != null) {
-                    if (!requestedGroupID.equals("null")) {
-                        // TODO : ADD CONTROLLER CALL
-                        List<GroupBubbleModel> gbms = gcc.getGroupMessage(requestedGroupID);
-                        request.setAttribute("groupchat", gbms);
-                    }
-                    request.setAttribute("userfriend", userFriend);
-                    request.setAttribute("usergroup", gms);
-                    request.setAttribute("username", sessionedUser.getUserName());
-                    rd.forward(request, response);
-                }
-            } catch (SQLException ex) {
-                Logger.getLogger(IndexServlet.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
+        // TODO : ADD POLLING FUNCTION HERE
+        
     }
 
     /**
@@ -105,7 +65,30 @@ public class ChatServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
+        
+        String senderID = String.valueOf(request.getSession().getAttribute("user"));
+        String groupID = request.getParameter("group");
+        String message = request.getParameter("messageGroup");
+        
+        System.out.println("sender: " + senderID);
+        System.out.println("group: "+groupID);
+        System.out.println("message: "+message);
+        
+        GroupChatModel gcm = new GroupChatModel();
+        gcm.setSenderID(senderID);
+        gcm.setGroupID(groupID);
+        gcm.setMessage(message);
+        
+        GroupChatController gcc = new GroupChatController();
+        boolean success = gcc.create(gcm);
+        
+        if (success) {
+            response.sendRedirect("./chat?group="+groupID);
+        }else {
+            PrintWriter out = response.getWriter();
+            out.print("error sending your message");
+        }
+        
     }
 
     /**
@@ -116,6 +99,6 @@ public class ChatServlet extends HttpServlet {
     @Override
     public String getServletInfo() {
         return "Short description";
-    }
+    }// </editor-fold>
 
 }
