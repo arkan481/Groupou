@@ -18,12 +18,13 @@ This project was created to fulfill a given 4th project task during my 2nd semes
 - [x] Modify chat page to have user's group list
 - [x] Add chat API route
 - [x] Make chat box dynamic according to user's group selection
+- [x] Add the chat sender name
 - [ ] Get the last message to be shown in the group bubble
 - [ ] Deploy
 
 ## Bug Fix
-- [ ] Fix ChatBox Child Element Ordering
+- [x] Fix ChatBox Child Element Ordering
 - [ ] Fix Bot Command Reply
-- [ ] Fix Between User Chat Child Element Order on Chatbox
+- [x] Fix Between User Chat Child Element Order on Chatbox
 - [ ] Fix Group Div Height
-- [ ] Fix Chat Bubble Margin
+- [x] Fix Chat Bubble Margin

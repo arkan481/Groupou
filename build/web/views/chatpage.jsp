@@ -17,7 +17,7 @@
 
         </head>
 
-        <body onload="replyhi()">
+        <body>
         <jsp:include page="/views/layouts/chat/chatscript.jsp"></jsp:include>
             <div class="outercont">
                 <div class="blackbox" id="blackboxid">
@@ -34,7 +34,7 @@
                         <div class="boxprofile">
                             <a href="./">
                                 <img class="profilimage2"
-                                     src="https://img.icons8.com/dusk/2x/google-home.png"
+                                     src="https://www.pngkey.com/png/full/24-248385_home-icon-vector-png-google-home-app-icon.png"
                                      alt="">
                             </a>
                         </div>
@@ -74,7 +74,7 @@
                     <div class="containerkiri">
                         <div class="boxprofile2">
                             <img class="profilimage"
-                                 src="https://img.icons8.com/plasticine/2x/bot.png"
+                                 src="https://cdn3.iconfinder.com/data/icons/customer-support-7/32/40_robot_bot_customer_help_support_automatic_reply-512.png"
                                  alt="">
                             <p class="username" id="unp">${username}</p>
                     </div>
@@ -128,8 +128,16 @@
                                     var chatBox = document.getElementById("chatid");
                                     var div = document.createElement("div");
                                     var span = document.createElement("span");
+                                    var span2 = document.createElement("p");
+                                    var br = document.createElement("br");
                                     if (senderID === userID) {
                                         div.style.textAlign = "right";
+                                        div.style.marginRight = "20px";
+                                        span2.style.textAlign = "right";
+                                        span2.style.paddingRight = "20px";
+                                    } else {
+                                        div.style.marginLeft = "0px";
+                                        span2.style.paddingLeft = "20px";
                                     }
                                     span.style.borderRadius = "15px";
                                     span.style.marginLeft = "20px";
@@ -143,10 +151,13 @@
                                     span.style.fontSize = "1em";
                                     div.style.borderRadius = "15px";
                                     div.style.marginTop = "35px";
+                                    span.style.marginBottom = "15px";
                                     span.textContent = "${chat.message}";
+                                    span2.textContent = "${chat.username}";
+                                    span2.style.color = "#615f5f";
                                     div.appendChild(span);
-
                                     chatBox.appendChild(div);
+                                    chatBox.appendChild(span2);
                                 </script>
 
                             </c:forEach>
@@ -173,14 +184,15 @@
                 <span class="topdesctext">Make a place for you to hang out with your communities and friends.</span>
                 <form action="group" method="POST" id="createGroupForm"></form>
                 <form action="join" method="POST" id="joinGroupForm"></form>
+
                 <div class="centerdiv">
                     <div class="leftdiv">
                         <p class="pgroupname">Create a Group</p>
                         <input name="groupName" class="inputgroup" placeholder="New Group Name" form="createGroupForm"/>
                         <span class="pgroupname">OR</span>
                         <p class="pgroupname">Join a Group</p>
-                        <input name="groupname" class="inputgroup" placeholder="Group ID" form="joinGroupForm"/>
-                        <button type="button" class="joinbtn" form="joinGroupForm">JOIN</button>
+                        <input name="groupID" class="inputgroup" placeholder="Group ID" form="joinGroupForm"/>
+                        <button type="submit" class="joinbtn" form="joinGroupForm">JOIN</button>
                     </div>
                     <div class="rightdiv">
                         <img class="comimg" src="https://cdn1.iconfinder.com/data/icons/network-and-comminications-flat-circle-shadow-vo-1/120/control__data__share__community__social__communication__connect-512.png"/>

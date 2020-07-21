@@ -71,6 +71,9 @@ public class JoinServlet extends HttpServlet {
         gum.setUserID(userID);
         gum.setGroupID(groupID);
         
+        System.out.println("userid: "+userID);
+        System.out.println("group id: "+groupID);
+        
         GroupUserController guc = new GroupUserController();
         
         boolean success = guc.create(gum);
