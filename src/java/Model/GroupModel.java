@@ -13,6 +13,15 @@ public class GroupModel {
     private String id;
     private String groupOwner;
     private String groupName;
+    private String lastMessage;
+
+    public String getLastMessage() {
+        return lastMessage;
+    }
+
+    public void setLastMessage(String lastMessage) {
+        this.lastMessage = lastMessage;
+    }
 
     public String getId() {
         return id;

@@ -11,6 +11,10 @@ package Query;
  */
 public class GroupUserQuery {
     
-    public final String GET_USER_GROUP = "SELECT groupName,group_id FROM group_tb,group_user_tb WHERE group_id = group_tb.id AND user_id = ?";
+    public final String GET_USER_GROUP = "SELECT groupName,group_user_tb.group_id,MAX(group_chat_tb.message) "
+            + "AS lastMessage FROM group_tb,group_user_tb,group_chat_tb WHERE user_id = ? "
+            + "AND group_user_tb.group_id = group_chat_tb.group_id "
+            + "AND group_tb.id = group_user_tb.group_id GROUP BY group_user_tb.group_id";
     public final String CREATE = "INSERT INTO group_user_tb (group_id,user_id) VALUES (?,?)";
+    
 }

@@ -87,7 +87,7 @@
                                         <div clas="chatbubble">
                                             <p>${group.groupName}</p>
                                             <div class="msghor">
-                                                <p class="msgtxt">Some message...</p>
+                                                <p class="msgtxt">${group.lastMessage}</p>
                                                 <div class="tooltip" onclick="copyFunction(${group.id})">
                                                     <img class="copyicon" src="https://cdn3.iconfinder.com/data/icons/basic-1-blue-series/64/a-06-512.png"/>
                                                     <span class="tooltiptext" id="tttext">ID: ${group.id}</span>
@@ -123,7 +123,7 @@
                         <div id="chatid" class="chatbox">
                             <c:forEach items="${groupchat}" var="chat">
                                 <script>
-                                    if("${chat.message}" == "--spot") {
+                                    if ("${chat.message}" == "--spot") {
                                         replyspot();
                                     }
                                     console.log("still goes through");
@@ -169,7 +169,15 @@
                         <div class="wrapperinbox">
                             <div class="inboxsend">
                                 <form action="groupchat" method="POST" id="sendForm"></form>
-                                <input id="inputid" type="text" placeholder="Type Message…" name="messageGroup" form="sendForm" pattern="[A-Za-z0-9 ]+">
+                                <input id="inputid" type="text" placeholder="Type Message…" name="messageGroup" form="sendForm" 
+                                       pattern="[A-Za-z0-9 ]+" 
+                                       oninvalid="this.setCustomValidity(' ')"
+                                       oninput="setCustomValidity(' ')"
+                                       onchange="try {
+                                                   setCustomValidity('')
+                                               } catch (e) {
+                                               }"
+                                       >
                                 <button type="submit" name="group" value="<%=request.getParameter("group")%>" name="group" form="sendForm" class="btnSend">
                                     <img class="logo" onclick="append()" src="./public/assets/img/send.png" alt="">
                                 </button>

@@ -38,6 +38,7 @@ public class GroupUserController extends BaseController {
             GroupModel groupModel = new GroupModel();
             groupModel.setGroupName(rs.getString("groupName"));
             groupModel.setId(rs.getString("group_id"));
+            groupModel.setLastMessage(rs.getString("lastMessage"));
             
             groupModels.add(groupModel);
         }
