@@ -16,8 +16,8 @@ This project was created to fulfill a given 4th project task during my 2nd semes
 - [x] Add Chat Page
 - [x] Add 'Add Friend Functionality'
 - [x] Modify chat page to have user's group list
-- [ ] Add chat API route
-- [ ] Make chat box dynamic according to user's group selection
+- [x] Add chat API route
+- [x] Make chat box dynamic according to user's group selection
 - [ ] Get the last message to be shown in the group bubble
 - [ ] Deploy
 
@@ -26,3 +26,4 @@ This project was created to fulfill a given 4th project task during my 2nd semes
 - [ ] Fix Bot Command Reply
 - [ ] Fix Between User Chat Child Element Order on Chatbox
 - [ ] Fix Group Div Height
+- [ ] Fix Chat Bubble Margin
