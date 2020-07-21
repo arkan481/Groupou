@@ -123,6 +123,10 @@
                         <div id="chatid" class="chatbox">
                             <c:forEach items="${groupchat}" var="chat">
                                 <script>
+                                    if("${chat.message}" == "--spot") {
+                                        replyspot();
+                                    }
+                                    console.log("still goes through");
                                     var senderID = "${chat.senderID}";
                                     var userID = "<%= request.getSession().getAttribute("user")%>";
                                     var chatBox = document.getElementById("chatid");
@@ -165,7 +169,7 @@
                         <div class="wrapperinbox">
                             <div class="inboxsend">
                                 <form action="groupchat" method="POST" id="sendForm"></form>
-                                <input id="inputid" type="text" placeholder="Type Message…" name="messageGroup" form="sendForm">
+                                <input id="inputid" type="text" placeholder="Type Message…" name="messageGroup" form="sendForm" pattern="[A-Za-z0-9 ]+">
                                 <button type="submit" name="group" value="<%=request.getParameter("group")%>" name="group" form="sendForm" class="btnSend">
                                     <img class="logo" onclick="append()" src="./public/assets/img/send.png" alt="">
                                 </button>

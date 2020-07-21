@@ -24,7 +24,7 @@ This project was created to fulfill a given 4th project task during my 2nd semes
 
 ## Bug Fix
 - [x] Fix ChatBox Child Element Ordering
-- [ ] Fix Bot Command Reply
+- [x] Fix Bot Command Reply
 - [x] Fix Between User Chat Child Element Order on Chatbox
-- [ ] Fix Group Div Height
+- [x] Fix Group Div Height
 - [x] Fix Chat Bubble Margin
