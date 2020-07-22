@@ -20,7 +20,7 @@ This project was created to fulfill a given 4th project task during my 2nd semes
 - [x] Make chat box dynamic according to user's group selection
 - [x] Add the chat sender name
 - [x] Get the last message to be shown in the group bubble
-- [ ] Add friend chat functionality
+- [x] Add invite group to a friend feature
 - [ ] Deploy
 
 ## Bug Fix

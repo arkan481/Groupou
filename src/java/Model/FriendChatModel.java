@@ -9,37 +9,20 @@ package Model;
  *
  * @author arkan481
  */
-public class GroupChatModel {
-    
+public class FriendChatModel {
+
     private String id;
-    private String groupID;
     private String message;
     private String date;
+    private String receiverID;
     private String senderID;
-    private String senderUserName;
 
     public String getId() {
         return id;
     }
 
-    public String getSenderUserName() {
-        return senderUserName;
-    }
-
-    public void setSenderUserName(String senderUserName) {
-        this.senderUserName = senderUserName;
-    }
-
     public void setId(String id) {
         this.id = id;
-    }
-
-    public String getGroupID() {
-        return groupID;
-    }
-
-    public void setGroupID(String groupID) {
-        this.groupID = groupID;
     }
 
     public String getMessage() {
@@ -58,6 +41,14 @@ public class GroupChatModel {
         this.date = date;
     }
 
+    public String getReceiverID() {
+        return receiverID;
+    }
+
+    public void setReceiverID(String receiverID) {
+        this.receiverID = receiverID;
+    }
+
     public String getSenderID() {
         return senderID;
     }
@@ -65,6 +56,5 @@ public class GroupChatModel {
     public void setSenderID(String senderID) {
         this.senderID = senderID;
     }
-    
     
 }

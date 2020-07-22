@@ -5,10 +5,12 @@
  */
 package Servlet;
 
+import Controller.FriendChatController;
 import Controller.FriendController;
 import Controller.GroupChatController;
 import Controller.GroupUserController;
 import Controller.UserController;
+import Model.FriendChatModel;
 import Model.GroupBubbleModel;
 import Model.GroupModel;
 import Model.UserModel;
@@ -65,6 +67,7 @@ public class ChatServlet extends HttpServlet {
         HttpSession session = request.getSession();
         String user = String.valueOf(session.getAttribute("user"));
         String requestedGroupID = String.valueOf(request.getParameter("group"));
+        String requestedFriendID = String.valueOf(request.getParameter("friend"));
         
         if (user.equals("null")) {
             response.sendRedirect("./login");
@@ -73,6 +76,7 @@ public class ChatServlet extends HttpServlet {
             GroupUserController guc = new GroupUserController();
             FriendController fc = new FriendController();
             GroupChatController gcc = new GroupChatController();
+            FriendChatController fcc = new FriendChatController();
             try {
                 UserModel sessionedUser = uc.show(String.valueOf(user));
                 List<GroupModel> gms = guc.getUserGroup(user);
@@ -82,6 +86,12 @@ public class ChatServlet extends HttpServlet {
                         // TODO : ADD CONTROLLER CALL
                         List<GroupBubbleModel> gbms = gcc.getGroupMessage(requestedGroupID);
                         request.setAttribute("groupchat", gbms);
+                    }else if (!requestedFriendID.equals("null")) {
+                        FriendChatModel fcm = new FriendChatModel();
+                        fcm.setSenderID(user);
+                        fcm.setReceiverID(requestedFriendID);
+                        List<FriendChatModel> fcms = fcc.get(fcm);
+                        request.setAttribute("friendchat", fcms);
                     }
                     request.setAttribute("userfriend", userFriend);
                     request.setAttribute("usergroup", gms);

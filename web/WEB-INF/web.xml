@@ -44,6 +44,14 @@
         <servlet-name>GroupChatServlet</servlet-name>
         <servlet-class>Servlet.GroupChatServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>FriendChatServlet</servlet-name>
+        <servlet-class>Servlet.FriendChatServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>InviteServlet</servlet-name>
+        <servlet-class>Servlet.InviteServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
         <url-pattern>/login</url-pattern>
@@ -87,6 +95,14 @@
     <servlet-mapping>
         <servlet-name>GroupChatServlet</servlet-name>
         <url-pattern>/groupchat</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>FriendChatServlet</servlet-name>
+        <url-pattern>/friendchat</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>InviteServlet</servlet-name>
+        <url-pattern>/invite</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

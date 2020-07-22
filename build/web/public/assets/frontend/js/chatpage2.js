@@ -264,3 +264,16 @@ function closeFriendPopup() {
     var groupPopUp = document.getElementById("popupFriend");
     groupPopUp.style.display = "none";
 }
+
+function popUpInvite(userID) {
+    var inputInvite = document.getElementById("inputInvite");
+    var groupPopUp = document.getElementById("popupInvite");
+    groupPopUp.style.display = "flex";
+    inputInvite.value = userID;
+    console.log("this: "+userID);
+}
+
+function closeInvitePopup() {
+    var groupPopUp = document.getElementById("popupInvite");
+    groupPopUp.style.display = "none";
+}

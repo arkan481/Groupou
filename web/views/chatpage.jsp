@@ -102,13 +102,12 @@
                             <input type="text" class="searchgroup" placeholder="Search Friends"/>
                             <div class="divgroup">
                                 <c:forEach items="${userfriend}" var="user">
-                                    <div class="chatbubble">
+                                    <div class="chatbubble" onclick="popUpInvite('${user.id}')">
                                         <p>${user.userName}</p>
                                         <div class="msghor">
-                                            <p class="msgtxt">Some message...</p>
-                                            <div class="tooltip" onclick="copyFunction(${user.id})">
-                                                <img class="copyicon" src="https://cdn3.iconfinder.com/data/icons/basic-1-blue-series/64/a-06-512.png"/>
-                                                <span class="tooltiptext" id="tttext">ID: ${user.id}</span>
+                                            <p class="msgtxt">Invite to a group</p>
+                                            <div onclick="copyFunction(${user.id})">
+                                                <img class="copyicon" src="https://cdn4.iconfinder.com/data/icons/general-business/150/Invite-512.png"/>
                                             </div>
                                         </div>
                                     </div>
@@ -233,6 +232,27 @@
                 <div class="wrappercreate">
                     <a onclick="closeFriendPopup()" href="#" class="topdesctext">Back</a>
                     <button type="submit" class="joinbtn2" form="friendForm">ADD</button>
+                </div>
+            </div>
+        </div>
+        <div class="popupGroup" id="popupInvite">
+            <div class="groupDivWhite">
+                <span class="toptext">INVITE YOUR FRIENDS OR COLLEAGUES</span>
+                <span class="topdesctext">Chat personally with your relatives and friends.</span>
+                <div class="centerdiv">
+                    <div class="leftdiv2">
+                        <p class="pgroupname">INVITE YOUR FRIEND</p>
+                        <form action="invite" method="POST" id="inviteForm"></form>
+                        <input class="inputgroup" placeholder="Friend ID" name="userfriend" form="inviteForm" id="inputInvite"/>
+                        <input class="inputgroup" placeholder="Group ID" name="groupid" form="inviteForm"/>
+                    </div>
+                    <div class="rightdiv">
+                        <img class="comimg" src="https://cdn1.iconfinder.com/data/icons/network-and-comminications-flat-circle-shadow-vo-1/120/control__data__share__community__social__communication__connect-512.png"/>
+                    </div>
+                </div>
+                <div class="wrappercreate">
+                    <a onclick="closeInvitePopup()" href="#" class="topdesctext">Back</a>
+                    <button type="submit" class="joinbtn2" form="inviteForm">INVITE</button>
                 </div>
             </div>
         </div>
