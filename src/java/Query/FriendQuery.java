@@ -16,4 +16,5 @@ public class FriendQuery {
           + "AND users_tb.id = adder";
   public final String INSERT = "INSERT INTO user_friend_tb (addee,adder) VALUES"
           + " (?,(SELECT users_tb.id FROM users_tb WHERE users_tb.username = ?))";
+  public final String DELETE = "DELETE FROM user_friend_tb WHERE adder = ? AND addee = ?";
 }

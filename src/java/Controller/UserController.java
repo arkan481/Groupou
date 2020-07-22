@@ -72,4 +72,14 @@ public class UserController extends BaseController{
         }
     }
     
+    public boolean changePassword(UserModel um) {
+        String sql = this.query.UPDATE_PASSWORD;
+        
+        Map<Integer,Object> map = new HashMap<>();
+        map.put(1, um.getPassword());
+        map.put(2, um.getId());
+        
+        return this.preparedStatement(map, sql);
+    }
+    
 }

@@ -52,6 +52,10 @@
         <servlet-name>InviteServlet</servlet-name>
         <servlet-class>Servlet.InviteServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ChangePasswordServlet</servlet-name>
+        <servlet-class>Servlet.ChangePasswordServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
         <url-pattern>/login</url-pattern>
@@ -103,6 +107,10 @@
     <servlet-mapping>
         <servlet-name>InviteServlet</servlet-name>
         <url-pattern>/invite</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ChangePasswordServlet</servlet-name>
+        <url-pattern>/changepassword</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

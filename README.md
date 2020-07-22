@@ -21,6 +21,8 @@ This project was created to fulfill a given 4th project task during my 2nd semes
 - [x] Add the chat sender name
 - [x] Get the last message to be shown in the group bubble
 - [x] Add invite group to a friend feature
+- [x] Add unfriend feature
+- [x] Add change password functionality
 - [ ] Deploy
 
 ## Bug Fix

@@ -65,6 +65,11 @@
                             <img class="logo"
                                  src="./public/assets/img/friend.png">
                         </div>
+                        <div class="boxkiri" id="aboutid" onclick="popUpPW()">
+                            <div class="bluediv"></div>
+                            <img class="logo"
+                                 src="https://mpng.subpng.com/20180825/cih/kisspng-information-digitization-cryptocurrency-computer-i-antivirus-encryption-svg-png-icon-free-download-5b816c1aa87d41.5044696915352084746901.jpg">
+                        </div>
                         <div class="logoutwrapper">
                             <div class="logoutbox" onclick="showPopUp()">
                                 <img src="./public/assets/img/logout" alt="" class="logo">
@@ -80,7 +85,7 @@
                     </div>
                     <div class="wrapper2">
                         <div class="groupwrapper">
-                            <input type="text" class="searchgroup" placeholder="Search Group"/>
+                            <input type="text" class="searchgroup" placeholder="Your Group Lists"/>
                             <div class="divgroup">
                                 <c:forEach items="${usergroup}" var="group">
                                     <a href="./chat?group=${group.id}" class="chatbubble">
@@ -99,15 +104,17 @@
                             </div>
                         </div>
                         <div class="friendwrapper">
-                            <input type="text" class="searchgroup" placeholder="Search Friends"/>
+                            <input type="text" class="searchgroup" placeholder="Your Friend Lists"/>
                             <div class="divgroup">
                                 <c:forEach items="${userfriend}" var="user">
-                                    <div class="chatbubble" onclick="popUpInvite('${user.id}')">
+                                    <div class="chatbubble">
                                         <p>${user.userName}</p>
                                         <div class="msghor">
-                                            <p class="msgtxt">Invite to a group</p>
-                                            <div onclick="copyFunction(${user.id})">
-                                                <img class="copyicon" src="https://cdn4.iconfinder.com/data/icons/general-business/150/Invite-512.png"/>
+                                            <p onclick="popUpInvite('${user.id}')" class="msgtxt">Invite to a group</p>
+                                            <div>
+                                                <a href="./friend?adder=${user.id}">
+                                                    <img class="copyicon" src="https://cdn.iconscout.com/icon/premium/png-256-thumb/stop-339-1080283.png"/>
+                                                </a>
                                             </div>
                                         </div>
                                     </div>
@@ -253,6 +260,26 @@
                 <div class="wrappercreate">
                     <a onclick="closeInvitePopup()" href="#" class="topdesctext">Back</a>
                     <button type="submit" class="joinbtn2" form="inviteForm">INVITE</button>
+                </div>
+            </div>
+        </div>
+        <div class="popupGroup" id="popupPW">
+            <div class="groupDivWhite">
+                <span class="toptext">Change Your Password</span>
+                <span class="topdesctext">Secure your account</span>
+                <div class="centerdiv">
+                    <div class="leftdiv2">
+                        <p class="pgroupname">Change Password</p>
+                        <form action="changepassword" method="POST" id="pwForm"></form>
+                        <input required=true type="password" class="inputgroup" placeholder="New Password" name="newpassword" form="pwForm"/>
+                    </div>
+                    <div class="rightdiv">
+                        <img class="comimg" src="https://cdn1.iconfinder.com/data/icons/network-and-comminications-flat-circle-shadow-vo-1/120/control__data__share__community__social__communication__connect-512.png"/>
+                    </div>
+                </div>
+                <div class="wrappercreate">
+                    <a onclick="closePWPopUp()" href="#" class="topdesctext">Back</a>
+                    <button type="submit" class="joinbtn2" form="pwForm">CHANGE</button>
                 </div>
             </div>
         </div>

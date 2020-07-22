@@ -277,3 +277,13 @@ function closeInvitePopup() {
     var groupPopUp = document.getElementById("popupInvite");
     groupPopUp.style.display = "none";
 }
+
+function popUpPW() {
+    var groupPopUp = document.getElementById("popupPW");
+    groupPopUp.style.display = "flex";
+}
+
+function closePWPopUp() {
+    var groupPopUp = document.getElementById("popupPW");
+    groupPopUp.style.display = "none";
+}

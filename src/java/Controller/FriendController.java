@@ -53,5 +53,14 @@ public class FriendController extends BaseController {
         return this.preparedStatement(map, sql);
     }
     
+    public boolean delete(String adder,String addee) {
+        String sql = this.query.DELETE;
+        
+        Map<Integer,Object> map = new HashMap<>();
+        map.put(1, adder);
+        map.put(2, addee);
+        
+        return this.preparedStatement(map, sql);
+    }
     
 }
