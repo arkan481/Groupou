@@ -5,19 +5,17 @@
             <url>web/views/chatpage.jsp</url>
             <bookmark id="1">
                 <name/>
-                <line>55</line>
+                <line>57</line>
                 <key/>
             </bookmark>
         </file>
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/Users/arkan481/NetBeansProjects/Groupou/web/views/login.jsp</file>
-            <file>file:/Users/arkan481/NetBeansProjects/Groupou/src/java/Model/FriendModel.java</file>
-            <file>file:/Users/arkan481/NetBeansProjects/Groupou/src/java/Query/FriendQuery.java</file>
-            <file>file:/Users/arkan481/NetBeansProjects/Groupou/src/java/Query/GroupQuery.java</file>
+            <file>file:/Users/arkan481/NetBeansProjects/Groupou/src/java/Controller/GroupUserController.java</file>
+            <file>file:/Users/arkan481/NetBeansProjects/Groupou/web/views/chatpage.jsp</file>
+            <file>file:/Users/arkan481/NetBeansProjects/Groupou/src/java/Model/GroupModel.java</file>
             <file>file:/Users/arkan481/NetBeansProjects/Groupou/src/java/Query/GroupUserQuery.java</file>
-            <file>file:/Users/arkan481/NetBeansProjects/Groupou/src/java/Servlet/LoginServlet.java</file>
             <file>file:/Users/arkan481/NetBeansProjects/Groupou/README.md</file>
         </group>
     </open-files>
